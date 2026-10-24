@@ -1,0 +1,14 @@
+/* The theme sets the page's colours and fonts; this file holds only what it cannot. */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* A keyboard focus ring that stays visible on every control, including disclosures. */
+:focus-visible {
+  outline: 2px solid #487f89;
+  outline-offset: 2px;
+}
+
+summary::marker {
+  color: #707070;
+}

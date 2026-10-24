@@ -1,0 +1,32 @@
+# Every tunable value of the explanation feature. The README beside this file lists
+# what each one controls. No accuracy has been measured for this configuration, and
+# the page says so. Changing a model, a threshold, a limit, the system prompt, a
+# judgment question or a passage changes the configuration fingerprint.
+
+[jev]
+# The judgment model, reached at OpenRouter's System One endpoint.
+model = "typesafe/jev-1.13"
+# A written sentence passes when Jev's supported probability is at least supported_min
+# and its tells-a-verdict probability is below verdict_max.
+supported_min = 0.5
+verdict_max = 0.5
+
+[llm]
+# The text model, reached at OpenRouter's chat completions endpoint.
+model = "anthropic/claude-sonnet-5.5"
+temperature = 0
+# The longest question about a reading, in characters after trimming.
+question_characters = 300
+# The most sentences an explanation may have.
+explain_sentences = 4
+# How many more times the text model is asked when it claims an answer but writes no
+# sentence with text and a citation; such an answer could only be withheld.
+blank_answer_retries = 1
+# How long one model call may take; the page waits on it. With the retry policy below,
+# it governs Jev's calls as well, which go through the same client.
+timeout_seconds = 60
+# An answer with one of these statuses (rate-limited, overloaded) is retried this many
+# times, after waiting retry_wait_seconds each time.
+retry_statuses = [429, 529]
+retries = 1
+retry_wait_seconds = 1

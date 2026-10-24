@@ -1,0 +1,210 @@
+// Generated from Go by TestFrontendDocumentation (backend/internal/server/frontend_test.go); do not edit.
+// Rerun: cd backend && go test ./internal/server -run TestFrontend -update
+
+export interface Passage {
+  title: string
+  path: string
+  anchor: string
+  text: string
+}
+
+export const PASSAGES: readonly Passage[] = [
+  {
+    "title": "Evidence for the resistivity sign limit (Apparent resistivity above 0 ohm-m)",
+    "path": "docs/research.md",
+    "anchor": "1-domain-rules",
+    "text": "D1: apparent resistivity at or below zero is physically implausible. 23 readings of the line are negative, all from one run of swapped receiver leads. 9 of them have two or more positive repeats to compare against, and all 9 disagree with them."
+  },
+  {
+    "title": "Why the resistivity sign limit has its value",
+    "path": "docs/research.md",
+    "anchor": "1-domain-rules",
+    "text": "0 is the physical boundary D1 names. Counting exactly 0 as a violation is our extension (section 4)."
+  },
+  {
+    "title": "Evidence for the decay trend limit (Decay slope below 0)",
+    "path": "docs/research.md",
+    "anchor": "1-domain-rules",
+    "text": "D3: a decay falls overall, and a fitted line with a negative slope is a sound first test. 46 curves of the line rise; 25 of them belong to readings whose chargeability is negative, where noise pushed the curve below zero so that it climbs back toward it. The slopes of falling and rising curves meet near 0, with no empty gap between."
+  },
+  {
+    "title": "Why the decay trend limit has its value",
+    "path": "docs/research.md",
+    "anchor": "1-domain-rules",
+    "text": "0 separates falling from rising by definition. The method is an unweighted least-squares line with a free intercept over the ten gate centres (section 7 shows it verified)."
+  },
+  {
+    "title": "Evidence for the transmitter contact limit (Transmitter contact resistance 0 to 10,000 ohm, inclusive)",
+    "path": "docs/research.md",
+    "anchor": "2-from-a-gap-in-the-data",
+    "text": "Every contact resistance is either at most 1,091.6 ohm or at least 20,077.1 ohm: 19 readings lie above 10,000 ohm, all transmitting through line-1-e31 after it dried out; none is negative. A negative contact resistance is impossible, so it violates too."
+  },
+  {
+    "title": "Why the transmitter contact limit has its value",
+    "path": "docs/research.md",
+    "anchor": "2-from-a-gap-in-the-data",
+    "text": "Any limit from 1,091.6 to 20,077.1 flags the same 19 readings; 10,000 sits inside the gap."
+  },
+  {
+    "title": "Evidence for the resistivity error limit (Resistivity relative error at most 0.50)",
+    "path": "docs/research.md",
+    "anchor": "3-provisional",
+    "text": "No gap: 1,460 readings below 0.05, 57 from 0.05 to 0.15, 52 from 0.15 to 0.50, 19 from 0.50 to 1.0 and 15 above 1.0. The nearest values straddle the limit: 0.4714 below, 0.5247 above. The large errors come from the wind window and from receiving on the dried electrode."
+  },
+  {
+    "title": "Why the resistivity error limit has its value",
+    "path": "docs/research.md",
+    "anchor": "3-provisional",
+    "text": "At 0.50 the reported uncertainty is half the value, which leaves the reading too uncertain to trust its magnitude. That is our reasoning, not a finding."
+  },
+  {
+    "title": "Evidence for the chargeability error limit (Chargeability relative error at most 1.00)",
+    "path": "docs/research.md",
+    "anchor": "3-provisional",
+    "text": "No gap: 1,364 readings below 0.2, 136 from 0.2 to 0.4, then a thinning tail (24, 14 and 13 across 0.4 to 1.0), 52 above 1.0. The nearest values straddle the limit: 0.9937 below, 1.0020 above."
+  },
+  {
+    "title": "Why the chargeability error limit has its value",
+    "path": "docs/research.md",
+    "anchor": "3-provisional",
+    "text": "At 1.00 the reported error equals the value itself, so the measurement carries no information beyond its own uncertainty. That is our reasoning, not a finding: the data offers no better place."
+  },
+  {
+    "title": "Evidence for the repeat agreement limit (Repeat agreement within 0.20 of the reference)",
+    "path": "docs/research.md",
+    "anchor": "3-provisional",
+    "text": "No clean gap. Of 1,531 readings compared: 1,503 within 0.15, 4 from 0.15 to 0.20, 13 from 0.20 to 0.40 and 11 beyond 0.40. Of the 24 above 0.20, 19 use the suspect electrode or have a Violated single-reading result; the other 5 have neither. Four of those lie inside the wind window; the fifth, at row 1536, is ordinary measurement noise at n factor 8 over the conductive body, 26% from its repeats' median: a sound reading the check sends to review. D4 names outlier statistics as the first test but gives no number."
+  },
+  {
+    "title": "Why the repeat agreement limit has its value",
+    "path": "docs/research.md",
+    "anchor": "3-provisional",
+    "text": "Ordinary disagreement stays below 0.15. 0.20 leaves room above that for a sound reading's noise, and still flags a reading a fifth away from what its repeats agree on."
+  },
+  {
+    "title": "Design choice: Resistivity of exactly 0 violates the sign criterion",
+    "path": "docs/research.md",
+    "anchor": "4-design-choices",
+    "text": "A zero apparent resistivity is no more physical than a negative one. No reading of the line is 0 (the smallest positive is 14.712), so the data never tests it."
+  },
+  {
+    "title": "Design choice: A relative error is not computed when the value is 0, and divides by the absolute value",
+    "path": "docs/research.md",
+    "anchor": "4-design-choices",
+    "text": "Dividing by 0 has no answer, and a negative value would make the ratio negative. A zero resistivity is judged by its sign criterion alone; a zero chargeability by no criterion, since no domain rule says one is wrong."
+  },
+  {
+    "title": "Design choice: The repeat-agreement reference needs at least 2 eligible repeats, a median above 0, and excludes repeats with a Violated single-reading result",
+    "path": "docs/research.md",
+    "anchor": "4-design-choices",
+    "text": "One repeat is not a reference; a median at or below 0 cannot be divided by; a repeat already known to be bad would drag the reference toward itself."
+  },
+  {
+    "title": "Design choice: Frozen repeat means resistivity, chargeability and all ten decay samples exactly equal, compared only between repeats with every value available",
+    "path": "docs/research.md",
+    "anchor": "4-design-choices",
+    "text": "Independent measurements never agree to every digit. The line's 5 frozen readings are one whole repeat group, taken within 40 seconds; nothing looser was needed to find them, and a partial comparison would call readings frozen on missing data."
+  },
+  {
+    "title": "Design choice: A suspect electrode needs failing transmitter contact with at least 2 distinct partners, counting the tx1 and tx2 slots",
+    "path": "docs/research.md",
+    "anchor": "4-design-choices",
+    "text": "Three electrodes have failing contact. line-1-e31 fails with two partners, its neighbours on both sides; line-1-e30 and line-1-e32 fail with one partner each, always e31. A count of 2 separates the faulty electrode from its neighbours exactly. D6 supports looking at shared electrodes; it gives no count. Contact is measured on the transmitting pair, so only tx slots count."
+  },
+  {
+    "title": "Chosen not to use: A local decay rise: one sample more than a ratio above the one before",
+    "path": "docs/research.md",
+    "anchor": "6-chosen-not-to-use",
+    "text": "Rises are common: 675 of the 1,557 falling curves have at least one. Ratio limits 1.10, 1.25, 1.50 and 2.00 flag 28, 21, 0 and 0 readings, of which 7, 0, 0 and 0 are not already rising curves. No labelled truth says the extra ones are defects."
+  },
+  {
+    "title": "Chosen not to use: A log-space decay fit error",
+    "path": "docs/research.md",
+    "anchor": "6-chosen-not-to-use",
+    "text": "A rising or sign-reversed exponential fits as well as a falling one, so a low error cannot establish a good decay."
+  },
+  {
+    "title": "What the research supports: Calling those limits data-based or provisional, never standards.",
+    "path": "docs/research.md",
+    "anchor": "7-what-the-research-supports",
+    "text": "No public source validates 0.50, 1.00, 10,000 ohm or 0.20 for this survey."
+  },
+  {
+    "title": "Domain rule D1",
+    "path": "docs/domain.md",
+    "anchor": "domain-rules",
+    "text": "Apparent resistivity at or below zero is physically implausible: the ground cannot produce it."
+  },
+  {
+    "title": "Domain rule D2",
+    "path": "docs/domain.md",
+    "anchor": "domain-rules",
+    "text": "A reading with an implausible or missing value is kept and flagged rather than dropped, so the reviewer can see that it happened."
+  },
+  {
+    "title": "Domain rule D3",
+    "path": "docs/domain.md",
+    "anchor": "domain-rules",
+    "text": "An induced-polarization decay falls overall after the current is switched off, though not necessarily at every gate; a straight line fitted with a negative slope is a sound first test."
+  },
+  {
+    "title": "Domain rule D4",
+    "path": "docs/domain.md",
+    "anchor": "domain-rules",
+    "text": "Comparing a reading with its repeats, an outlier statistic, is a sound first test for a reading that disagrees."
+  },
+  {
+    "title": "Domain rule D5",
+    "path": "docs/domain.md",
+    "anchor": "domain-rules",
+    "text": "No published formula or threshold fixes these limits for this survey; each one is a stated choice."
+  },
+  {
+    "title": "Domain rule D6",
+    "path": "docs/domain.md",
+    "anchor": "domain-rules",
+    "text": "Readings that share an electrode with known-bad readings deserve a second look."
+  },
+  {
+    "title": "The dataset is synthetic",
+    "path": "docs/domain.md",
+    "anchor": "dataset",
+    "text": "GeoLineAI ships one survey line, data/line-1.csv, and it is synthetic: scripts/generate-line/ produced it with a SimPEG 2D DC and IP forward model of one conductive, chargeable body in a resistive background, then added field conditions and defects by seeded rules applied across the whole line. No row was edited by hand."
+  },
+  {
+    "title": "What the criteria do not assess",
+    "path": "docs/domain.md",
+    "anchor": "criteria",
+    "text": "The criteria do not assess reciprocity, receiver contact, raw waveform noise, inversion residual, coordinate consistency between readings, or instrument-specific operating ranges."
+  },
+  {
+    "title": "Term: suspect electrode",
+    "path": "docs/domain.md",
+    "anchor": "terms",
+    "text": "A suspect electrode is one whose transmitting readings violate transmitter contact with two or more different partner electrodes; it marks an association to review, not a proven fault."
+  },
+  {
+    "title": "Term: repeat group",
+    "path": "docs/domain.md",
+    "anchor": "terms",
+    "text": "A reading's repeat group is the readings from its import that share all four electrode IDs; its repeats are the group's other readings."
+  },
+  {
+    "title": "What the advisory is",
+    "path": "docs/adr/0003-deterministic-advisory.md",
+    "anchor": "consequences",
+    "text": "The advisory is Pass, Fail or Needs review; there is no score, band or confidence."
+  },
+  {
+    "title": "What repeat agreement adds",
+    "path": "docs/adr/0003-deterministic-advisory.md",
+    "anchor": "consequences",
+    "text": "On the shipped line, repeat agreement is the only criterion that marks 5 readings for review: they disagree with their repeats while using no suspect electrode and having no Violated result. It is the outlier statistic D4 names; of the readings it marks, most also use the suspect electrode or have a Violated result."
+  },
+  {
+    "title": "What the suspect electrode criterion cannot detect",
+    "path": "docs/adr/0003-deterministic-advisory.md",
+    "anchor": "consequences",
+    "text": "A suspect electrode needs failing contact readings with two different partners, so a faulty electrode at the end of a line, which transmits with one partner only, is not detected; its readings still violate transmitter contact themselves."
+  }
+]

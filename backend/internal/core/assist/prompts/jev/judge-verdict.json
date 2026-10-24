@@ -1,0 +1,8 @@
+{
+  "type": "noul",
+  "instructions": "Does `sentence` tell the reviewer what to decide about a reading or what to do with it: that it should be passed, failed, accepted, rejected, kept, discarded, or excluded from or included in the inversion? Count it whether said directly, as a negative, as a question that presumes it, or as someone else's words.",
+  "criteria": {
+    "true": "`sentence` recommends, instructs or presumes a decision or an action about the reading.",
+    "false": "`sentence` only states what a rule, a criterion's result, the advisory, a value or the documentation says. Met, Violated, Review, Needs review, Pass and Fail are the names of a criterion's result state or of the advisory the tool computed; stating them reports a computed result and does not tell the reviewer a decision."
+  }
+}

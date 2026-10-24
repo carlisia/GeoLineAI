@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.5/.schema/devbox.schema.json",
+  "packages": ["go@1.26", "nodejs_24@latest", "python312@latest", "lsof@latest"],
+  "shell": {
+    "scripts": {
+      "setup": "scripts/setup.sh",
+      "start": "scripts/start.sh",
+      "verify": "scripts/verify.sh"
+    }
+  }
+}

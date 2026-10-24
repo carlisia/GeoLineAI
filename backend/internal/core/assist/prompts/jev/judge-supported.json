@@ -1,0 +1,11 @@
+{
+  "type": "noul",
+  "instructions": {
+    "question": "Is every claim in `sentence` stated by `sources`, restated in other words from `sources`, or a true comparison between values that `sources` state?",
+    "unsupported": "A claim is not supported when `sources` do not state it: a number, identifier, rule, expectation, cause, diagnosis or judgment of quality that no source states, however tentatively it is phrased. One such claim makes the whole sentence unsupported."
+  },
+  "criteria": {
+    "true": "Every claim in `sentence` is stated by `sources` or follows directly from what they state.",
+    "false": "At least one claim in `sentence` is not stated by `sources`."
+  }
+}

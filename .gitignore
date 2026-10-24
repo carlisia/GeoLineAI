@@ -1,0 +1,49 @@
+# --- Go ---------------------------------------------------------------
+/backend/geolineai
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.txt
+go.work
+go.work.sum
+
+# --- Local state ------------------------------------------------------
+# SQLite databases and their WAL sidecars live under var/ by default.
+/var/
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+
+# --- Node / frontend --------------------------------------------------
+node_modules/
+dist/
+
+# --- Python (generator and checkers) ----------------------------------
+__pycache__/
+*.pyc
+.venv/
+
+# --- Tooling ----------------------------------------------------------
+.devbox/
+
+# --- Environment ------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# --- Editors ----------------------------------------------------------
+/.idea/
+.vscode/
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+
+# --- OS ---------------------------------------------------------------
+.DS_Store
+Thumbs.db

@@ -1,0 +1,17 @@
+[
+  {
+    "label": "Passing reading",
+    "file": "line-1.csv",
+    "row": 2
+  },
+  {
+    "label": "Violated criterion",
+    "file": "line-1.csv",
+    "row": 262
+  },
+  {
+    "label": "Disagreeing repeats",
+    "file": "line-1.csv",
+    "row": 1065
+  }
+]
