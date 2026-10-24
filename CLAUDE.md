@@ -8,7 +8,7 @@ When choices conflict, the higher item wins; equal items resolve to the smaller 
 
 1. **Correctness.** A save lands on exactly its reading; values, results and evidence are accurate; an explanation is shown only when every sentence passes its checks.
 2. **Usability.** The reviewer always knows what is happening and loses nothing: what a save did, why an answer was withheld or unavailable, how to recover.
-3. **Simplicity.** The scope in docs/spec.md is the whole scope. Do not add features, endpoints, extension points or configuration it does not name.
+3. **Simplicity.** The scope in docs/spec.md is the whole scope, plus, on the `modulewise` branch, the chapter being worked in [docs/modulewise/](docs/modulewise/README.md). Do not add features, endpoints, extension points or configuration neither names.
 
 ## Invariants
 
