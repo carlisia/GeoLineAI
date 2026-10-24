@@ -1,0 +1,6 @@
+[component.checks]
+uri = "./main.wasm"
+imports = ["wasip2"]
+
+[capability.wasip2]
+type = "wasi:p2"

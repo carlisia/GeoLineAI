@@ -1,0 +1,9 @@
+package example:checks;
+
+world checks {
+    record source {
+        id: string,
+        text: string,
+    }
+    export problems: func(sentence: string, cited: list<source>, ids: list<string>) -> list<string>;
+}

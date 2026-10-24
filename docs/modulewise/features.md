@@ -10,9 +10,9 @@ Every chapter records what changed, why, what stayed equivalent, what it cost, a
 
 - **What moves:** `codeProblems` (`internal/core/assist/grounded/checks.go:123`), called once per sentence from `internal/core/assist/grounded/answer.go:202`. It is pure: a sentence, the sources it cites, every source by ID, and the IDs it names in, the problems out. It reads `survey.Lines` and the criterion names at package level.
 - **Capabilities:** C02 typed interface (E31): a WIT world exporting the check, with a record for a source. C01 and C03 stay at their defaults here.
-- **Host:** `composable-http-server` on localhost (ADR [0001](adr/0001-runtime-behind-http-server.md)), a route onto the exported function.
-- **Guest language:** Go through TinyGo `wasip2` (E21). If it does not load (E22 unknown), the blocker goes upstream with a reproduction and the component is written in Rust.
-- **Unknowns the chapter must settle first:** E22 (TinyGo component runs in the runtime) and E24 (a record argument in a request body). Each is a proof of concept before any GeoLineAI code changes.
+- **Host:** `composable invoke`, one process per call, until `composable-http-server` can bind loopback only (E60, K9); then a route onto the exported function (ADR [0001](adr/0001-runtime-behind-http-server.md)).
+- **Guest language:** Go. A stock Go component built with componentize-go runs once granted `wasi:p2` (E27, E29); TinyGo's binding generator is unmaintained (E28) and was not tried (E22). The chapter uses stock Go with componentize-go.
+- **Settled by proofs of concept:** a record and a list travel as JSON fields of the request body (E24); the server listens on every interface (E60).
 - **Proof:** the existing tests in `internal/core/assist/grounded` run against both paths; a rapid test generates sentences and sources and compares the component with the oracle; `scripts/verify.sh` passes.
 - **Contributions it produces:** K1 (Go guest example), and K3 if the install path is still broken when the chapter starts.
 

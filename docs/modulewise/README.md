@@ -7,6 +7,7 @@ This branch uses GeoLineAI as a fixed application for learning what ModuleWise's
 - [features.md](features.md): the conversions and extensions, in chapter order, and the asks.
 - [contributions.md](contributions.md): candidate contributions and their drafts.
 - [adr/](adr/): decisions that hold for every chapter.
+- [poc/](poc/README.md): one-command reproductions of the verified rows that needed a run.
 
 ## Rules on this branch
 
